@@ -49,6 +49,7 @@ library(igraph)
 
     # Expected run time FOR LINE 51= 17 min. Up to 16 GB of ram occupied. (This in a machine similar to those at BSC)
     # pathway_enrichments <- neat(genes_lists,blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
+    # Line 51 computes the output present at https://raw.githubusercontent.com/ikernunezca/Medulloblastoma/master/network_enrichment_analysis/NEAT_pathayws_layer.csv
 
     # Save enrichment results
     write.table(pathway_enrichments,file="Output/Reactome_enrichment.tsv",sep="\t",col.names=T,row.names=F)
