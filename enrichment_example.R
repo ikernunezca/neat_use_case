@@ -45,7 +45,7 @@ library(igraph)
     message('Starting pathway enrichments. Please note this process may take a while')
 
     # Configured in this way, the order in line 48 will compute the enrichment for the first two patients. If you want to test all patients, comment this line and run line 52.
-    pathway_enrichments <- neat(genes_lists[1:2],blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
+    pathway_enrichments <- neat(genes_lists[1:2],blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05)
 
     # Expected run time FOR LINE 51= 17 min. Up to 16 GB of ram occupied. (This in a machine similar to those at BSC)
     # pathway_enrichments <- neat(genes_lists,blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
