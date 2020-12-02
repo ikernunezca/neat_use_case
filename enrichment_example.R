@@ -43,8 +43,12 @@ library(igraph)
     names(genes_per_pathway) <- pathways # genes_per_pathway is an R list objects with all the Reactome pathways, and the genes associated to each in the reactome network: our 'set_b', the target set.
     
     message('Starting pathway enrichments. Please note this process may take a while')
-    # Expected run time= 17 min. Up to 16 GB of ram occupied. (This in a machine similar to those at BSC)
-    pathway_enrichments <- neat(genes_lists,blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
+
+    # Configured in this way, the order in line 48 will compute the enrichment for the first two patients. If you want to test all patients, comment this line and run line 52.
+    pathway_enrichments <- neat(genes_lists[1:2],blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
+
+    # Expected run time FOR LINE 51= 17 min. Up to 16 GB of ram occupied. (This in a machine similar to those at BSC)
+    # pathway_enrichments <- neat(genes_lists,blist = genes_per_pathway,network = reactome_graph,nettype = 'undirected',nodes=reactome_available,mtc.type = 'fdr',alpha = 0.05	)
 
     # Save enrichment results
     write.table(pathway_enrichments,file="Output/Reactome_enrichment.tsv",sep="\t",col.names=T,row.names=F)
